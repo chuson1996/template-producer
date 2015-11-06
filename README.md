@@ -25,12 +25,13 @@ NPM: npm install -g template-producer
 		"caption":"Bạn xinh nhất khi cười."
 	}
 }
-
-/// Note: the file extension doesn't matter, but the content must be of json type
-
+```
+**Note**: the file extension doesn't matter, but the content must be of json type
+```
 
 /* File template */
 /* smile.temp.html */
+
 
 <!DOCTYPE html>
 <html>
