@@ -1,0 +1,331 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script><style type="text/css"></style>
+
+<style type="text/css">
+	/* Font faces */
+	@font-face {
+	    font-family: 'Segoe UI';
+	    src: url('http://www.microsoft.com/surface/Assets/css/fonts/all/normal/segoeui.eot');
+	    src: local("Segoe UI"),
+	         local("Segoe"),
+	         local("Segoe WP"),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/normal/segoeui.eot?#iefix') format('embedded-opentype'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/normal/segoeui.woff') format('woff'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/normal/segoeui.svg#SegoeUI') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'Segoe UI Semibold';
+	    src: url('http://www.microsoft.com/surface/Assets/css/fonts/all/semibold/seguisb.eot');
+	    src: local("Segoe Semibold"),
+	         local("Segoe WP Semibold"), 
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/semibold/seguisb.eot?#iefix') format('embedded-opentype'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/semibold/seguisb.woff') format('woff'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/semibold/seguisb.svg#SegoeUISemibold') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'Segoe UI Bold';
+	    src: url('http://www.microsoft.com/surface/Assets/css/fonts/all/bold/segoeuib.eot');
+	    src: local("Segoe Bold"),
+	         local("Segoe WP Bold"),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/bold/segoeuib.eot?#iefix') format('eot'), 
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/bold/segoeuib.woff') format('woff'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/bold/segoeuib.svg#SegoeUIBold') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+
+	@font-face {
+	    font-family: 'Segoe UI Light';
+	    src: url('http://www.microsoft.com/surface/Assets/css/fonts/all/light/segoeuil.eot');
+	    src: local("Segoe UI Light"),
+	         local("Segoe WP Light"),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/light/segoeuil.eot?#iefix') format('embedded-opentype'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/light/segoeuil.woff') format('woff'),
+	         url('http://www.microsoft.com/surface/Assets/css/fonts/all/light/segoeuil.svg#SegoeUILight') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+    html {
+    	-ms-content-zooming:none
+    }
+    
+	body{
+		/*font-size:48px;*/
+		font-family:Segoe UI, Calibri, sans-serif;
+	}
+	h1{
+		font-family: 'Segoe UI Light';
+	}
+	h2{
+	    font-weight: normal;
+	    font-family: 'Segoe UI Light';
+	    margin: 0px 0;
+	    font-size: 28px;
+	}
+	h3{
+		font-weight:normal;
+		font-family: 'Segoe UI Light';
+	}
+	p{
+		margin: 8px 0;
+		font-size: 12px;
+	}
+	h1,h2,h3,p,li{
+		-webkit-user-select: none; /* Chrome/Safari */        
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* IE10+ */
+		/* Rules below not implemented in browsers yet */
+		-o-user-select: none;
+		user-select: none;
+	}
+	table p{
+		font-size:10px;
+		margin: 3px 0 0 0;
+	}
+	.container{
+		width:100%;
+		margin:0 auto;
+		float:none;
+	}
+	.row, .container, .col25, .col75, .col100, input, button#submit{
+		display:block;
+		-webkit-box-sizing: border-box; 
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    overflow:auto;
+	}
+	.row:after, .container:after, .col25:after,.col75:after, .col100:after{
+		clear:both;
+	}
+	.col25{
+		width:25%;
+	}
+	.col75{
+		width:75%;
+	}
+	.col100{
+		width:100%;
+	}
+	.row div{
+		display: inline-block;
+		float:left;
+	}
+	.offsetLeft{
+		padding-left:30px;
+	}
+	img.responsivse{
+		width:100%;
+	}
+	.hpadding{
+		padding-left: 3px;
+    	padding-right: 3px;
+	}
+	.vpaddingTop{
+		padding-top:15px;
+	}
+	.clear{
+		clear:both;
+	}
+	.btn.btn-default{
+		background-color:rgba(0,120,215,1);
+		border:0;
+		color:#FFFFFF;
+		padding:14px;
+		font-size:13px;
+		width:100%;
+		text-align:center;
+		text-decoration:none;
+		font-family: inherit;
+		margin: 6px 0;
+	}
+	.btn.btn-default.ng-disabled{
+		background-color:rgba(0,120,215,0.5);
+		color:#FFFFFF;
+	}
+	input{
+		width:100%;
+		font-size:12px;
+	}
+	input[type='email']{
+	    border: 1px solid #888888;
+	    background-color: #FFFFFF;
+	    padding: 8px;
+	    font-family: inherit;
+	}
+	input[type='email']:focus{
+		border: 1px solid #0078d7;
+	}
+	button[type='submit']{
+		background-color:rgba(0,120,215,1);
+		border:0;
+		color:#FFFFFF;
+		padding:14px;
+		font-weight:bold;
+		font-size:13px;
+		width:100%;
+		text-align:center;
+		text-decoration:none;
+		font-family: inherit;
+		margin: 6px 0;
+	}
+	button[type='submit'].ng-disabled{
+		background-color:rgba(0,120,215,0.5);
+		color:#FFFFFF;
+	}
+	
+	::-webkit-input-placeholder{
+	   font-style:italic;
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+	   font-style:italic;
+	}
+	:-ms-input-placeholder {  
+	  font-style:italic;
+	}
+	.btn{
+        text-align: left;
+	    background-color: inherit;
+	    box-shadow: none;
+	    color: inherit;
+	    padding: 0;
+	    font-family: inherit;
+	    font-size: inherit;
+	    border: none;
+        outline: none;
+	}
+	.btn.btn-offer{
+		width: 100%; 
+		padding:5px 8px;
+		text-align: left;
+	}
+
+	.btn:active{
+		opacity: 0.8;
+	}
+	.btn:disabled{
+		background-color:rgba(0,120,215,0.5);
+	}
+	ul.format-none{
+		list-style-type: none;
+    	padding: 0;
+	}
+	ol.ol-default{
+	    font-size: 12px;
+	    padding-left: 16px;
+	}
+	a{
+		color:inherit;
+	}
+	a:visited{
+		color:inherit;
+	}
+</style>
+<style>
+	.offer{
+		display:none;
+	}
+	img.logo{
+		min-width: 64px;
+		max-width: 125px;
+	}
+	h1{
+		font-family: 'Segoe UI Light';
+		font-size:24px;
+		line-height:24px;
+		margin:0 0 10px 0;
+	}
+	h2{
+	    font-weight: normal;
+	    font-family: 'Segoe UI Light';
+	    font-size: 18px;
+	    line-height:18px;
+	    margin:5px 0 0 0;
+	}
+	h3{
+		font-weight:normal;
+		font-family: 'Segoe UI Light';
+	}
+	p{
+		margin: 8px 0;
+		font-size: 12px;
+	}
+	table p{
+		font-size:10px;
+		margin: 3px 0 0 0;
+	}
+	@media (min-width: 0px) and (max-width: 640px) {
+		img.logo{
+			max-width: 75px;
+			max-height: 75px;
+		}
+	}
+	@media (min-width: 500px) and (max-width: 640px) {
+		img.logo{
+			max-width:125px;
+			max-height:125px;
+		}
+	}
+	@media (min-width: 640px){
+		img.logo{
+			max-width:125px;
+			max-height: 125px;
+		}
+	}
+</style>
+<base href="https://cdn-edm.drafthorse.fi/f/0/3/8/f0384e18ccc0a16fc3094c7c810f119add5f7a6c/"><link href="https://www.drafthorse.fi:80/css/edm.css" media="screen" rel="stylesheet" type="text/css"></head>
+
+<body>
+
+	<div class="container hpadding vpaddingTop">
+
+	<div class="row">
+		<div class="col100">
+			<h1 data-dh-parameter="Heading">Lumia Offers</h1>
+			<p data-dh-parameter="description">Nämä</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col100">
+			<ul class="format-none">
+				<li data-dh-subtemplate="offer-default-0" id="995120e9" class="offer" style=" display: block;">
+					<button class="btn btn-default btn-offer btn-blue">
+						<table border="0" cellpadding="0" cellspacing="0" class="" style="width:100%;">
+								<tbody><tr>
+									<td valign="top">
+										<h2 data-dh-parameter="Offer-heading">Display Dock</h2>
+										<p data-dh-parameter="Offer-description">unasta ilmainen Microsoft-näyttötelakka ja käytä puhelintasi kuin tietokonetta.</p>
+									</td>
+									<td class="offsetLeft" style="">
+										<!-- <img width="250" height="250" src="https://d1gdfehgwuupuu.cloudfront.net/6/c/b/c/6cbc07fa-a54f-4dcf-835c-8430cec42c2c" alt="" class="responsive" data-dh-parameter="offer-default-2-logo" style="display:block;width:100%; height:100%;"> -->
+										<img width="125" height="125" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQREBUUEhAVFRMXGBUVFRQXGB4ZGRgdGhUaGBcbGRUcJigjGBwlGxweIjEhJSkrOi4xHB8zODM4NzQtLisBCgoKDg0OGxAQGywkICQsLCwsLDQ0LCwsLDA0LCw0LiwsLC8sLCssLCwvLywtNDQsLCwsLCwsLCwsLCwsLiwsLP/AABEIAHgAeAMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYCAwQBB//EADYQAAIBAwIEAwUGBgMAAAAAAAECAwAEERIhBTFBUQYTYSJxgZGhIzJCUmKxFDRTcoKSBxWi/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECBAMFBv/EADERAAIBAgMFBgYDAQEAAAAAAAABAgMRBCExBRITQWFRcZGhwdEUIjKB4fAzUrEkI//aAAwDAQACEQMRAD8A+tV8AbxQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQENxzjogIRV1PjJycBR0z3NSkVcjq4LxDz4tZXSclSBy27VDJTud9CRQHjHAyeQ3oDXbXCSKHjdXQ8mUgg/EVMouLtJWZCdzbUEigFAKAUBD3PiGNJhEFLbhWYcgSccutTYrvExUFhQCgK7xDgYuZPNjmGk7NgatxscHNTexS1yVURWkGWdUiQZZ2OAO5Y1MYynK0Vdk5JEYvGLmY5trLEf9a5cxZ7FYgrOR/dprTwKUP5J59iV/O6X+ld5vRGZPERviyf9H2qf+/a/ao/5n/ZeD8h8x5B4j0usd3C1rIx0ozMHhc9knGBnsGCk9BSWGunKk95L7Nd69rjf7TF7b+H4jG0YAjulkE6jkZIwGjkA5BiupWPXC9qlS4lBqWsbW7nqv3qNJZE+zAAkkADck7ADqSelZNToQI8QvN/JWxuF/rM3lQn+1yCX96qR61q+GUP5pbvTV+HLxOe+3obGm4gBkQWjfp86QH/AGMePpUKOG/tLwXuPmPYfEAVlS6ia2djhS5DRMeyzjbPYNpJ6CksM2nKm95efh7XJU+0mqzFyKh4DGsxl3JyWCnkCd8+tLld0laFhQHhFAabO0WJAka4UdPf60ZFrENZQi9m8+TDQRsVto+hZSQ07dGOdk7AE9dtU5cGPDj9T+p+nv8AgolvO7LBWU6CgNN3apNG0cqK8bDDIwyCPUVaM5QkpRdmQ1cguAgwzm0lJcxL5lrKxyzRMdLKT1ZCApPUFfWtVe04cWOV8pLr+fcpHJ2YljF/O6OM2cLaGTpPKPvBu8cfLHVic8t4T+Hgmvrefcvd+S7x9T6FiArIdD2gNV1bJKjRyIrowKsjDIIPQipjJxe9F2ZDVyE4M7W05s5HLoVMlo7HLFFIEkTH8RjyuG6qwzuMnTWSqQ40VZ6SXXk/vn9ykcnYsFZToKAUAoCD8TcWaILBBG0l1OkvlAEKF0qAZHY8lBZeWSe1acNRUvnm7Ri1f2RScuSMuBWtzHFFG0cEUcaIgVS0jEKAPvYQL8jSvOlKTkm2278l7kRuiRv4pmA8mREbrrjLg/AMpHvrjCUF9av97ejLPoc1mtwrfb3EDD8qRlD/ALM5/arz4bXyRfjf0ITfNkgJAeTAn3iuNi1yjeLOMS293bO0KSSRmQrDAzSTvG66W+zKjA1BCST+GvUwtGFSlKKbSds3ZK6637zlJu52/wDGd40lki5iJjGmUKzGQSE6n8xCo0MSScVy2jBRqt556dluVsyabyLVclwpKKrN0DMVB97AHHyrDHdbszo32EfDdXRPtW0KDv8AxBb6CMfvXZwpLST8PyV3mSmPSs5a5A+Iba4eWBooFbyZBJqMuliCrI6hCuN1bq3MCteHlTUZKUrXVtPB6+hSV28iQ4TxRLhWKhlZGMckbjDIwAJVgMjkQcg7gg1xq0nTaT55p9qLRlc7q5lhQCgIrj/BluUyCyTosnkSqxVkZlxzHNSQMg7HArtRrOm7cna6Kyjc6uB8Lt57aOTQ51oGIeR2IOPaByeYOR8K+yWGoaxhHwRk3mRfjPwfC8IkhtlZ42DsgGS64IYAdSM6gOpWtWH4dOabirdxmxUKlSk4wdnyPiXE/A7ySs9r5bwuSwOrGjJ3Uj0rdUwc5SvTaaZ59HatOEN2vdSWT6n0P/j3wfC7RDyY5IoAfMmKDEkhBAUH8WCST2wo58qYlwhBUo5tastgeJVqyryuk9EWDwDZIqXEwRVeW4nB0jGEilaONB6ALnHcmvhtr1XKvucl+s96ksrnvGuFw/8AZWcrRK3nmS2lUjZ/smljZu5XQwB/VWrYtRycqcs0lddCtZWzKR4s8GoDJahVjl1NJC+PvpqJX3gA6TjlgelfZ0adOtR3Y2UkfO4ivWwmJ4km3B/vkVzgPgwwSiS6VGUZCRL7ZkY7ABep7CppYV0nv1WrIYjaPxEeFh77z+1j7P4c8BWsdtH51rH55BaQrkEMx1aQwI2XOPhXmTUZttpHtQTjFK97LXtPeO8ISIwxwSzRSSyYysrMQiAtIQrlhywvL8QrzMfToUqLm4Rvyy9jrBtux28J4XHbIVj1e0zO7MSzOzc2ZjzP7YAr5erVlUd5d3caoxsdtcyRQCgFARqXDWUjPpLWshLyBRloXP3nCj70bc2x90jO4Jx9BsvaCUVRqvufoZqlPmiyW86yIHR1dGGVZTkEdwRzr3ziR954btJn8yS1id+rFBk+89fjQHvEuKxWqqmMuR9lbxga2x+VeijqxwB3rnUqQpx3puyJSbK14QV4/wCIhlCLIszTaUJKhbgmUYJAzhta566c4HKvk9oVI1pqtHR+n6jTTVsjzj98kd7Z+ZkRxebcSOBkR+z5MZfspLtv0wa17F3YzlKTtf5V15+hWtmW6/4fDdIFljSVNmXUAR6FT094r6XQz6qxz8N8PW1u2uGBFflr5tjsGOSB7qlyctXcrGEYZRSXcdfEb+O3jMkrhUGBnqSeQUDdmJ2AG5qG7K7LFfsI3lla5mXSzDRFEecUec4P63OC2OWFHTJ+U2njViJKMPpXm+000oWzZJV5Z2FAKAUAoDCJCBuxbcnJx1Ow27cqlu5LafIj14VHrZo1eBtW7RNoDnA9oqPZb3kd610cdXoq0ZZdmpzlSiza1i52a7uCO2pV+qqD9a0PbGJa5eBXgxM7DhsUOoxoAzY1uSWd8ctUhyzfE1grV6lZ3m7l1FLQ3CBdZfHtlQhPcAkgH3En5mue893d5E25mENqFkkk5s+kE/pUHSvuyWP+Rqzm3FR7CEjkThHl/wAtNJbjnoTBj+ETAhf8cVuobUr0la9119ykqSZtRLv8V6pHpAob5liPpWt7cnbKC8yvBMYLFRLqfXLKoyJZN8atiE/Cp230gdK87E42tXXzvLsR1jSUVc7JVbK4bABywxnUMHYdt8b+lZFbmXTWdzZQgUAoBQCgMGTJByds7Z2Oe460uTfKxnQgUAoBQCgFAKAUBrhhCDCjAyT33JyfrUtt6kuTbuzZUECgFAKAUBWuC8blmuCpA0YYlQPu45b/AEqbZFE8yy1BcUBovLyOFdcsixr+ZiAPrzNWhCU3aKuyG0iIv/EwjieWO1uZkRWdmWPQuAMkhpSuoY7Zr0aWyMRPVJd5zdZI5+FcYvrppBFYwxiNlRjLcEnJjWQeykf5WHWtNDY8KsN5VPL8lXVaehvmv72O4jge3tmZ45JdSyuAAjIpG6HJOsfKuWM2bTw0VJzefT8iNRyJyFmI9pQp6gHUPngftXku18jsjXe3axIXc4A+ZPYDvUBuxWpvFrZ9iJQP1Ek/TlU2K7xN8E4qLhCdOllwGGc8+RB7VDLJ3JGhIoBQCgIzjd+LaPUqjW5wNuvUnviiKvIrnC+NyiZdchZWYAg+pxkdqsVTLtVToVzidm0N3b3MNo1wyiYOQ66xqC6fakOy7HYelexszGwouXEdllY4VIX0NnHuMXFzaTQDhk6tLE8YYvDpBZSoJw+cDPavWW1sN2nLhyMbG6urSa5CWBmSSUSI6zIu3kxpjS243SsmC2jQpUIwk8/yXlBtm21nnuL1ZpbRrdUgkjGp1fUXkRttPLAT61m2pjKVenFU3zLU4NPMnK8U7lU8a6tUf5MNjtqzv8cVKKSK2oycDcnkBzPwqSpd/DXDTDGS4w7kEjsByHv3qGXiiYqCwoBQCgK94ytmaNHAyELavQHG/wBKlFZEN4d4eZZVbHsIQxPTbcAdzmpZVIvJqp0NBlcc49XqpH7HlWhU6Us1O3Rr1Wpfdi+dhrkPJFX+45+gqd3Dx1k33K3+k2gtW2eEyjojfMVNsLLnJeD9h/5vtQHmNzCoPQ6j8OgqH8PDNXk/Be4+RaXfkbZn0oWwTpBOBzOByrNqc2RnA+IG6RzJGukEAdQdt+fPHf1qXkVTuSEFpHH9yNVPcAA/OoJsb6EigFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgFAKAUAoBQCgP//Z" alt="" class="responsive logo" data-dh-parameter="offer-default-2-logo" style="display:block;float:right;">
+									</td>
+								</tr>
+						</tbody></table>
+						
+					</button>
+				</li>
+			</ul>
+			
+		</div>
+		
+	</div>
+
+	</div>
+	<!-- <script type="text/javascript" src="controller.js"></script> -->
+	<script type="text/javascript" src="https://lumiaoffers.blob.core.windows.net/public/ContainerPage.js"></script>
+	<script>
+
+	</script>
+	<script src="http://localhost:35729/livereload.js"></script>
+
+</body></html>
