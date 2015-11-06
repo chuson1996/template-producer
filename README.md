@@ -41,7 +41,7 @@ NPM: npm install -g template-producer
 </head>
 <body style="text-align:center">
 	<h1 data-dh-parameter="title">Smile more</h1>
-	<img src="https://smilesolution.files.wordpress.com/2010/07/austin_danger_powers_mike_myers.jpg?w=300&h=259" alt="smile_img" data-dh-parameter="image">
+	<img data-dh-parameter="image" src="https://smilesolution.files.wordpress.com/2010/07/austin_danger_powers_mike_myers.jpg?w=300&h=259" alt="smile_img">
 	<h3 data-dh-parameter="caption">You're beautiful when you smile.</h3>
 </body>
 </html>
