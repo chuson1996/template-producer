@@ -31,7 +31,7 @@ NPM: npm install -g template-producer
 
 /* File template */
 /* smile.temp.html */
-```
+
 <!DOCTYPE html>
 <html>
 <head>
