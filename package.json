@@ -18,5 +18,8 @@
     "jsdom": "^7.0.2",
     "strip-bom": "^2.0.0"
   },
+  "bin": {
+    "template-producer": "bin/template-producer.js"
+  },
   "preferGlobal": "true"
 }
