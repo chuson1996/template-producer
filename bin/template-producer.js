@@ -4,7 +4,8 @@
  */
 'use strict';
 
-var fs = require("fs");
+// var fs = require("fs");
+var fs = require("fs-extra");
 var path = require('path');
 var stripBom = require('strip-bom');
 var jsdom = require('jsdom');
@@ -23,16 +24,9 @@ var template = fs.readFileSync(templateFile, {encoding: 'utf8'});
 
 async.waterfall([
     function(cb){
-        fs.readFile(paramFile, "utf8", function(err, data){
-            console.log(data);
+        fs.readJSON(paramFile, "utf8", function(err, data){
             if (err) return cb(err);
-            try{
-                var jsonContent = JSON.parse(data);
-
-                cb(null, jsonContent);
-            }catch(e){
-                cb(new Error("Invalid parameters!"));
-            }
+            cb(null, data);
         });
     },
     function(jsonContent, cb){
@@ -50,7 +44,7 @@ async.waterfall([
                 Object.keys(jsonContent).forEach(function(languageCode){
                     // Second: params
                     produceTemplate(jsonContent[languageCode], templateFile.replace('.temp.html','.'+languageCode+'.html'));
-                })
+                });
 
                 function displayDHParameters($dhElems){
                     $dhElems.each(function () {
@@ -74,6 +68,8 @@ async.waterfall([
                             }else{
                                 $queriedElem.html(parameters[parameter]);
                             }
+                        }else{
+                            console.error('Cannot find parameter: '+parameter);
                         }
                     });
 
@@ -103,3 +99,7 @@ async.waterfall([
     });
 
 
+function cleanJSON(string){
+    /* Remove comments */
+    return string.replace(/\/\/.+/gm,'').replace(/\/\*.+?\*\//gm,'');
+}
