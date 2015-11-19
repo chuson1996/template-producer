@@ -14,6 +14,7 @@ var async = require('async');
 
 
 module.exports = function(options) {
+    options = options || {};
     var root = process.cwd();
     if (options.pwd) root = path.resolve(root, options.pwd);
     var jquery = fs.readFileSync(path.resolve(__dirname,"./jquery.min.js"), {
