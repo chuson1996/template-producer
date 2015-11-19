@@ -85,7 +85,7 @@ async.waterfall([
                     // console.log(paramFile);
                 
                     var newFile = outputFileName;
-                    console.log('Writing to '+ outputFileName);
+                    process.stdout.write('Writing to '+ outputFileName+'\n');
                     // console.log('New file\'s name:',newFile);
                     fs.closeSync(fs.openSync(newFile, 'w'));
 
