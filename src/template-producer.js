@@ -16,7 +16,7 @@ var async = require('async');
 module.exports = function(options) {
     var root = process.cwd();
     if (options.pwd) root = path.resolve(root, options.pwd);
-    var jquery = fs.readFileSync(path.resolve(path.dirname(process.argv[1]), "../node_modules/jquery/dist/jquery.js"), {
+    var jquery = fs.readFileSync(path.resolve(path.dirname(__dirname), "../node_modules/jquery/dist/jquery.js"), {
         encoding: 'utf8'
     });
     var paramFile = path.resolve(root, options.parameters || process.argv[3]);
