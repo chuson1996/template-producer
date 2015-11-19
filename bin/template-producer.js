@@ -43,6 +43,7 @@ async.waterfall([
                 // First : Language Code
                 Object.keys(jsonContent).forEach(function(languageCode){
                     // Second: params
+                    console.log('----------'+languageCode+'-----------')
                     produceTemplate(jsonContent[languageCode], templateFile.replace('.temp.html','.'+languageCode+'.html'));
                 });
 
