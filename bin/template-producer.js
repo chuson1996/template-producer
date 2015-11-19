@@ -41,10 +41,10 @@ async.waterfall([
                 //displayDHParameters($dhElems);
                 
                 // First : Language Code
-                Object.keys(jsonContent).forEach(function(languageCode){
+                Object.keys(jsonContent).forEach(function(writeFile){
                     // Second: params
-                    console.log('----------'+languageCode+'-----------')
-                    produceTemplate(jsonContent[languageCode], templateFile.replace('.temp.html','.'+languageCode+'.html'));
+                    console.log('----------'+writeFile+'-----------')
+                    produceTemplate(jsonContent[writeFile], path.resolve(root, writeFile));
                 });
 
                 function displayDHParameters($dhElems){
