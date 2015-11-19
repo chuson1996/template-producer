@@ -76,7 +76,7 @@ async.waterfall([
                             }else{
                                 $queriedElem.html(content);
                             }
-                            $queriedElem.removeAttr('data-dh-parameter');
+                            // $queriedElem.removeAttr('data-dh-parameter');
                         }else{
                             console.error('Cannot find parameter: '+parameter);
                         }
