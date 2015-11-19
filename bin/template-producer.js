@@ -61,13 +61,21 @@ async.waterfall([
 
                     Object.keys(parameters).forEach(function (parameter) {
                         var $queriedElem = $('*[data-dh-parameter="'+parameter+'"]');
+                        var content = parameters[parameter];
+                        if (typeof content == "object"){
+                            // It's an object with a templateUrl
+                            var templateUrl = path.resolve(root, content.templateUrl);
+                            content = fs.readFileSync(templateUrl, "utf8");
+                        }
+
                         if ($queriedElem.length>0){
                             /* Found! */
                             if ($queriedElem[0].nodeName == "IMG"){
-                                $queriedElem.attr("src",parameters[parameter]);
+                                $queriedElem.attr("src",content);
                             }else{
-                                $queriedElem.html(parameters[parameter]);
+                                $queriedElem.html(content);
                             }
+                            $queriedElem.removeAttr('data-dh-parameter');
                         }else{
                             console.error('Cannot find parameter: '+parameter);
                         }
