@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "node test/testInTest/testInTest.js"
+    "test": "cd test && node --harmony ../bin/template-producer.js smile.temp.html params.json --watch"
   },
   "author": "Chu Hoang Son",
   "repository": {
@@ -17,6 +17,8 @@
     "fs-extra": "^0.26.2",
     "jquery": "^2.1.4",
     "jsdom": "^7.0.2",
+    "lodash": "^4.2.1",
+    "rx-node": "^1.0.1",
     "strip-bom": "^2.0.0"
   },
   "bin": {
