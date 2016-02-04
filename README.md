@@ -10,7 +10,7 @@ NPM: npm install -g template-producer
 
 ```
 /* File declaring parameters' values */
-/* params.txt */
+/* params.json */
 {
 	"fi": {
 		"page-title":"Hymy",
@@ -50,6 +50,6 @@ NPM: npm install -g template-producer
 
 Run command: `template-producer smile.temp.html params.txt`
 
-You will see 2 files: smile.fi.html and smile.vi.html where elements' with data-dh-parameter attribute are replaced regarding parameters in params.txt.
+You will see 2 files: smile.fi.html and smile.vi.html where elements' with data-dh-parameter attribute are replaced regarding parameters in params.json.
 
 On version 1.2.0: Pass `--watch` to watch for changes and rerun the task
