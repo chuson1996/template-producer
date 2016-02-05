@@ -12,13 +12,13 @@ NPM: npm install -g template-producer
 /* File declaring parameters' values */
 /* params.json */
 {
-	"fi": {
+	"smile.fi.html": {
 		"page-title":"Hymy",
 		"title":"Hymy",
 		"image":"http://static4.fjcdn.com/comments/Welcome+to+the+finnish+language+we+hope+you+wont+enjoy+_430d35ecaaedd0521e553557ca0be1c9.png",
 		"caption":"Olet kaunis kun hymyilet."
 	},
-	"vi":{
+	"smile.vi.html":{
 		"page-title":"Cười lên nào",
 		"title":"Cười lên nào",
 		"image":"http://www.samoppenheim.com/photos/Vietnam-HoiAn-Boatman.jpg",
